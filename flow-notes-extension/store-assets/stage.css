@@ -1,0 +1,31 @@
+:root{
+  --paper:#f9f3e1; --ink:#2f2a21; --ink-soft:#6d6353; --ink-faint:#9a8f7c;
+  --rule-ink:rgba(74,60,36,.09); --margin-ink:rgba(178,74,74,.30);
+  --yel:#FFD54A; --red:#C9553D; --dark:#23211C;
+  --serif:ui-serif,"Iowan Old Style",Georgia,serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body.stage{width:1280px;height:800px;overflow:hidden;position:relative;color:var(--ink);
+  font-family:var(--sans);background:var(--paper);
+  background-image:repeating-linear-gradient(to bottom,transparent 0 35px,var(--rule-ink) 35px 36px)}
+body.stage::before{content:"";position:absolute;top:0;bottom:0;left:72px;width:2px;background:var(--margin-ink)}
+.copy{position:absolute;left:112px;top:0;bottom:0;width:420px;display:flex;flex-direction:column;justify-content:center}
+.brand{position:absolute;left:112px;top:52px;display:flex;align-items:center;gap:12px;
+  font-family:var(--serif);font-size:21px;font-weight:600}
+.brand img{width:36px;height:36px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);font-weight:700;margin-bottom:16px}
+h1{font-family:var(--serif);font-size:44px;line-height:1.14;margin:0 0 22px;letter-spacing:-.01em;font-weight:600}
+h1 mark{background:linear-gradient(transparent 58%,var(--yel) 58% 94%,transparent 94%);color:inherit;padding:0 2px}
+.sub{font-size:19px;line-height:1.55;color:var(--ink-soft);margin:0}
+.visual{position:absolute;left:580px;right:56px;top:0;bottom:0;display:flex;align-items:center;justify-content:center}
+.window{width:640px;border-radius:12px;background:#fff;overflow:hidden;
+  box-shadow:0 34px 70px -24px rgba(47,42,33,.40),0 0 0 1px rgba(47,42,33,.12)}
+.bar{height:46px;background:#ECE7DB;display:flex;align-items:center;gap:14px;padding:0 12px 0 16px;border-bottom:1px solid #DCD4C2}
+.dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border-radius:50%;background:#D6CEBC;display:block}
+.url{flex:1;height:28px;border-radius:14px;background:#fff;font-size:13px;color:#7a7466;display:flex;align-items:center;padding:0 14px}
+.tb-icon{width:30px;height:30px;border-radius:7px;display:grid;place-items:center}
+.tb-icon img{width:16px;height:16px;display:block}
+.tb-icon.active{background:#D9D1BE}
+iframe{border:0;display:block}

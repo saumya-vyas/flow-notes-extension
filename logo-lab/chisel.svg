@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+<rect x="4" y="4" width="120" height="120" rx="30" fill="#FAF4E6" stroke="#DFD2B4" stroke-width="3"/>
+<clipPath id="chiselClip"><rect x="4" y="4" width="120" height="120" rx="30"/></clipPath>
+<rect x="18" y="86" width="92" height="14" rx="7" fill="#FFD54A"/>
+<g clip-path="url(#chiselClip)">
+  <g transform="rotate(-38 64 58) translate(0 6)">
+    <rect x="53" y="24" width="24" height="42" rx="6" fill="#23211C"/>
+    <rect x="53" y="66" width="24" height="11" fill="#8A8272"/>
+    <path d="M53 77 h24 l-6 17 h-12 Z" fill="#EFAF07"/>
+  </g>
+</g>
+</svg>

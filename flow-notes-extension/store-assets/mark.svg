@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Flow Notes mark. Round 2, variant G: ink ground, bold ribbon, one band.
+       The ink ground is what makes it survive at 16px in a Chrome toolbar; a
+       paper-coloured tile has no silhouette against a light toolbar. The faint
+       secondary line from the round-2 sheet is deliberately absent, because it
+       degraded to a grey smudge at 16px. -->
+  <clipPath id="tile">
+    <rect x="4" y="4" width="120" height="120" rx="30"/>
+  </clipPath>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="#23211C"/>
+  <!-- Clipped so the ribbon's top-right corner takes the tile's radius
+       instead of jutting past it. -->
+  <g clip-path="url(#tile)">
+    <path d="M68 4 h36 v66 l-18 -15 l-18 15 Z" fill="#C9553D"/>
+  </g>
+  <rect x="24" y="86" width="80" height="20" rx="5" fill="#FFD54A"/>
+</svg>

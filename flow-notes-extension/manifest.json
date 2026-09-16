@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkcNs6UIiOSgWCuLkxCIpaEfvSvSSn2MgoYFc+Ac1LVs8Jvpb15NwHgpXaO0NovFLVUCGY4gl1pFKmBrTx2j/7T2AP5ixlbCuKfNcnM1s/tW7Dmlie6Ieemdac6GA17nCI9pDDUwmovW/dOa2e2E3gBK72bYmuwC9J0Vm+sHesu8ru5l9uXP+W96V2ZeLnJjRllEXyWdP8JzAzi3TuVavHmFhB3q7sxjTtTPx2MEa2EuBOcGWsz6MeHAayKjQySFBGe46odlo564qidC3OPg+IuD9oKcEmRMwmoaB7/FzaoRghX4AHpuykdHumshnOuaGXxGeSriJwL1BjKOENLCtkQIDAQAB",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv3EIxaKwcJOTzsotyFvtL+KZIJzuiuKdbwDUipv7fmOQgpqmOLJuj1eUua75JwsZhueWS6jLOVIHKRQmvmFlZST4a/NVZQixhwCWmyX97Rexo4OYKmm5sZVA5LD7lY5g55OCB1IJjjni/3KsAeM8+eaCBRQOAd6uKIidSL3ABB29ju9IkqVfrtwUojbQqPS+2wBn9rtAD+iS7KiZv3mLwjGS0NwlPgUV9stEm92lsAmbIpmxSV6PKUlZkkUINp1HptL2kbNn4vKJqjWJgqQM/3CazvIadErJi9TyP/yo5pmX3ozlqLTOwRqiIOcuH/l0j0r+xRuFXCYdSRtiY8WLtQIDAQAB",
   "name": "Flow Notes",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "description": "Capture highlights while reading, without breaking your flow.",
   "permissions": ["storage", "identity", "nativeMessaging", "scripting"],
   "host_permissions": ["http://*/*", "https://*/*"],

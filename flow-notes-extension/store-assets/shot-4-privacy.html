@@ -1,0 +1,40 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>shot 4</title>
+<link rel="stylesheet" href="stage.css">
+<style>
+  .panel{width:560px;background:#fffdf5;border:1px solid rgba(74,60,36,.2);border-radius:16px;
+    padding:34px 38px;box-shadow:0 30px 60px -28px rgba(47,42,33,.38)}
+  .panel h3{font:700 12px/1 var(--sans);letter-spacing:.13em;text-transform:uppercase;margin:0 0 14px}
+  .panel ul{list-style:none;margin:0;padding:0}
+  .panel li{display:flex;gap:12px;align-items:baseline;font-size:17px;line-height:1.5;padding:6px 0;
+    border-bottom:1px solid rgba(74,60,36,.10)}
+  .panel li:last-child{border-bottom:0}
+  .panel li b{width:18px;flex:none;text-align:center}
+  .kept h3{color:var(--ink-faint)} .kept li{color:var(--ink-soft)} .kept b{color:var(--ink-faint)}
+  .never{margin-top:28px} .never h3{color:var(--red)} .never li{font-weight:600} .never b{color:var(--red)}
+  .foot{margin-top:24px;padding-top:18px;border-top:2px solid rgba(74,60,36,.14);font-size:15px;color:var(--ink-soft)}
+</style></head>
+<body class="stage">
+  <div class="brand"><img src="mark.svg" alt="">Flow Notes</div>
+  <div class="copy">
+    <div class="eyebrow">Private by design</div>
+    <h1>Your highlights never touch <mark>our database.</mark></h1>
+    <p class="sub">They go straight into your note. Our server keeps only a small
+    index of which notes exist and where they live.</p>
+  </div>
+  <div class="visual">
+    <div class="panel">
+      <div class="kept"><h3>Our server keeps</h3><ul>
+        <li><b>&middot;</b>A pseudonymous account id &mdash; not your name or email</li>
+        <li><b>&middot;</b>Note titles, and where each note lives</li>
+        <li><b>&middot;</b>When each note was created and updated</li>
+      </ul></div>
+      <div class="never"><h3>Never stored</h3><ul>
+        <li><b>&times;</b>The text you highlight</li>
+        <li><b>&times;</b>The pages you read</li>
+        <li><b>&times;</b>What your notes say</li>
+        <li><b>&times;</b>Analytics or tracking of any kind</li>
+      </ul></div>
+      <div class="foot">Settings &rarr; <b>Delete my data from the server</b> erases every record we hold, in one click.</div>
+    </div>
+  </div>
+</body></html>

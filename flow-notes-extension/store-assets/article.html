@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>How HTTP caching actually works</title>
+<style>
+  body{margin:0;background:#fff;color:#222;font:17px/1.7 ui-serif,"Iowan Old Style",Georgia,serif}
+  article{max-width:520px;margin:0 auto;padding:40px 24px}
+  .kicker{font:600 12px/1 ui-sans-serif,-apple-system,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#8a8272}
+  h1{font-size:32px;line-height:1.2;margin:12px 0 8px}
+  .by{font:14px ui-sans-serif,-apple-system,sans-serif;color:#8a8272;margin-bottom:26px}
+  p{margin:0 0 18px}
+  code{font:14px ui-monospace,Menlo,monospace;background:#f3efe6;padding:1px 5px;border-radius:4px}
+  ::selection{background:#FFE17A}
+</style></head>
+<body><article>
+  <div class="kicker">Web fundamentals</div>
+  <h1>How HTTP caching actually works</h1>
+  <div class="by">A plain guide &middot; 8 min read</div>
+  <p>Every response a server sends can carry instructions about how long a
+  browser may keep it. Get them right and repeat visits feel instant; get them
+  wrong and users see stale pages, or download the same file again and again.</p>
+  <p>The most common instruction is <code>Cache-Control</code>.
+  <span id="pick">A response with max-age=3600 can be reused for an hour without asking the server again.</span>
+  After that it is considered stale, but stale does not mean useless.</p>
+  <p>A stale response can be revalidated. The browser sends the ETag it stored
+  earlier, and if nothing changed the server answers 304 Not Modified with no
+  body at all, which costs a round trip but almost no bandwidth.</p>
+  <p>The most misunderstood directive is <code>no-cache</code>, which does not
+  mean what it says.</p>
+</article>
+<script src="stub.js"></script>
+<script src="../content.js"></script>
+<script>
+  // Make a real selection and fire the same event a mouse would, so the
+  // actual content script decides where and how its popup appears.
+  window.addEventListener("load", () => {
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("pick"));
+    const sel = getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    document.dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
+  });
+</script>
+</body></html>

@@ -158,6 +158,46 @@ function localStorageInUse() {
   return loadedNotes.some((n) => LOCAL_TARGETS.includes(n.storage_target));
 }
 
+// The install command is identical for a first install and an update:
+// install.sh is idempotent and takes the same argument. Both paths show it,
+// because an update used to offer a download and a "Check again" button with
+// no command, leaving the user to remember steps they ran once months ago.
+function addInstallSteps(steps, canDownload, isUpdate, extensionId) {
+  if (canDownload) {
+    addStep(steps, "Unzip the download, then run this in Terminal from that folder:");
+  } else {
+    addStep(
+      steps,
+      "No release has been published yet. Run this from your " +
+        "flow-notes-local folder instead:"
+    );
+  }
+  // The exact command with this installation's real extension id, so nobody
+  // has to go and find it on chrome://extensions.
+  addStep(steps, "", `./install.sh chrome-extension://${extensionId}`);
+  addStep(
+    steps,
+    isUpdate
+      ? "Restart Chrome, then press Check again below."
+      : "Restart Chrome. There's nothing to keep running — Chrome starts the helper when it's needed."
+  );
+  addStep(
+    steps,
+    "macOS may say the developer can't be verified — this build isn't signed. " +
+      "The installer handles it; if macOS still blocks it, right-click the file and choose Open."
+  );
+  // Only on a first install: macOS ties the automation permission to the
+  // binary's path, and the installer keeps that path fixed, so updating
+  // never asks for it again.
+  if (!isUpdate) {
+    addStep(
+      steps,
+      "Your first Apple Notes capture asks permission to control Notes. The dialog names " +
+        "Google Chrome, since Chrome launches the helper. Approve it once."
+    );
+  }
+}
+
 function updateSetupPanel() {
   const panel = document.getElementById("setup-panel");
   if (!helperStatus) return;
@@ -187,11 +227,9 @@ function updateSetupPanel() {
     body.textContent =
       `The helper on this Mac is version ${helperStatus.version}, but this ` +
       `version of the extension needs ${helperStatus.requiredVersion} or newer. ` +
-      `Download it and run the installer again, then restart Chrome.`;
+      `Updating is the same as installing:`;
     download.textContent = "Download update";
-    if (!canDownload) {
-      addStep(steps, "No release has been published yet. Re-run ./install.sh from your flow-notes-local folder.");
-    }
+    addInstallSteps(steps, canDownload, true, helperStatus.extensionId || chrome.runtime.id);
   } else {
     title.textContent = "Set up local storage";
     body.textContent =
@@ -200,33 +238,7 @@ function updateSetupPanel() {
       "in Google Drive don't need it.";
     download.textContent = "Download helper";
 
-    // Show the exact command with this installation's real extension id,
-    // so nobody has to go and find it on chrome://extensions.
-    if (canDownload) {
-      addStep(steps, "Unzip the download, then run this in Terminal from that folder:");
-    } else {
-      addStep(
-        steps,
-        "No release has been published yet. Run this from your " +
-          "flow-notes-local folder instead:"
-      );
-    }
-    addStep(
-      steps,
-      "",
-      `./install.sh chrome-extension://${helperStatus.extensionId || chrome.runtime.id}`
-    );
-    addStep(steps, "Restart Chrome. There's nothing to keep running — Chrome starts the helper when it's needed.");
-    addStep(
-      steps,
-      "macOS may say the developer can't be verified — this build isn't signed. " +
-        "The installer handles it; if macOS still blocks it, right-click the file and choose Open."
-    );
-    addStep(
-      steps,
-      "Your first Apple Notes capture asks permission to control Notes. The dialog names " +
-        "Google Chrome, since Chrome launches the helper. Approve it once."
-    );
+    addInstallSteps(steps, canDownload, false, helperStatus.extensionId || chrome.runtime.id);
   }
   panel.hidden = false;
 }

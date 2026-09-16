@@ -1,0 +1,38 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>shot 2</title>
+<link rel="stylesheet" href="stage.css">
+<style>
+  .chrome{width:560px;position:relative}
+  .chrome .bar{border-radius:12px;border:1px solid #DCD4C2;box-shadow:0 10px 30px -18px rgba(47,42,33,.4)}
+  .pop{position:absolute;right:0;top:54px;border-radius:10px;overflow:hidden;
+    box-shadow:0 34px 70px -24px rgba(47,42,33,.45),0 0 0 1px rgba(47,42,33,.14)}
+  .targets{display:flex;gap:10px;margin-top:28px;flex-wrap:wrap}
+  .targets span{font-size:14px;font-weight:600;padding:7px 13px;border-radius:999px;
+    background:#fffdf5;border:1px solid rgba(74,60,36,.2)}
+</style><script>
+  // In <head>, so it exists before the popup iframe can post its height.
+  addEventListener("message", (e) => {
+    const frame = document.getElementById("pf");
+    if (frame && e.data && e.data.h) frame.height = e.data.h;
+  });
+</script>
+</head>
+<body class="stage">
+  <div class="brand"><img src="mark.svg" alt="">Flow Notes</div>
+  <div class="copy">
+    <div class="eyebrow">Your notes, your place</div>
+    <h1>Notes that live <mark>where you already keep them.</mark></h1>
+    <p class="sub">Each note is a real Google Doc, Apple note or Markdown file.
+    Every passage keeps a [source] link back to the page it came from.</p>
+    <div class="targets"><span>Google Docs</span><span>Apple Notes</span><span>Markdown</span></div>
+  </div>
+  <div class="visual" style="align-items:flex-start;padding-top:150px">
+    <div class="chrome">
+      <div class="bar">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="url">blog.example.com/http-caching</div>
+        <span class="tb-icon active"><img src="mark.svg" alt=""></span>
+      </div>
+      <div class="pop"><iframe id="pf" src="build/popup-demo.html" width="340" height="420"></iframe></div>
+    </div>
+  </div>
+</body></html>
